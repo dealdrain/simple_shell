@@ -10,10 +10,10 @@
 
 void custom_error(char *prog, int counter, char *cmd)
 {
-        _puts(prog);
-        _puts(": ");
-        _putchar(counter);
-        _puts(": ");
-        _puts(cmd);
-        _puts(": not found\n");
-}      
+	_puts(prog);
+	_puts(": ");
+	_putchar(counter);
+	_puts(": ");
+	_puts(cmd);
+	_puts(": not found\n");
+}

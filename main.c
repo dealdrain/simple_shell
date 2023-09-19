@@ -1,5 +1,12 @@
 #include "shell.h"
 
+/**
+ * main- main function
+ * @argc: count of args
+ * @argv: arg vec
+ * Return: error code
+ */
+
 int main(int argc, char **argv)
 {
 	int shell_mode = isatty(0);
@@ -16,7 +23,7 @@ int main(int argc, char **argv)
 			print_string(prompt_message);
 
 		num = getline(&entry_buffer, &size, stdin);
-		
+
 		if (num == -1)
 		{
 			free(entry_buffer);
