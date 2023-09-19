@@ -26,8 +26,8 @@ char *_getpath(void)
 
 	for (x = 0; environ[x] != NULL; x++)
 	{
-		if (strncmp(environ[x], "PATH", 4) == 0
-				duplicate = strdup(environ[x]);
-				}
-				return (duplicate);
+		if (strncmp(environ[x], "PATH", 4) == 0)
+			duplicate = strdup(environ[x]);
+	}
+	return (duplicate);
 				}

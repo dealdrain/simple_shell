@@ -26,8 +26,8 @@ int process_input(char *entry_buffer, char **argv, int error_code)
 
 		if (status == 1)
 		{
-			free(args)
-				return (error_code);
+			free(args);
+			return (error_code);
 		}
 
 		get_full_path = find_path(_getpath(), args[0]);
