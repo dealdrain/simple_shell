@@ -17,7 +17,8 @@ char **custom_strtok(char *str, char *delim)
 	if (!delim)
 		delim = " ";
 	for (i = 0; str[i] != '\0'; i++)
-		if (!check_delim(str[i], delim) && (check_delim(str[i + 1], delim) || !str[i + 1]))
+		if (!check_delim(str[i], delim) &&
+				(check_delim(str[i + 1], delim) || !str[i + 1]))
 			numwords++;
 
 	if (numwords == 0)
