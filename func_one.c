@@ -23,7 +23,6 @@ char *_getpath(void)
 {
 	int x;
 	char *duplicate = NULL;
-	char **environ;
 
 	for (x = 0; environ[x] != NULL; x++)
 	{
