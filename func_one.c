@@ -33,3 +33,9 @@ char *_getpath(void)
 				return (duplicate);
 				}
 
+
+/**
+ * check_comment - Checks if the string is a comment
+ * @buf: The string to check and fix a null byte at point of #
+ * Return: Void
+ */
