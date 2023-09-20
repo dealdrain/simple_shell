@@ -24,6 +24,10 @@ int exec_cmd(char **args, char **argv);
 int check_delim(char c, char *delim);
 char **custom_strtok(char *str, char *delim);
 char **custom_strtok2(char *str, char delim);
+void check_comment(char *buf);
+int mul(int a, int b);
+
+extern char **environ;
 
 #endif /*OUR_SIMPLE_SHELL*/
 

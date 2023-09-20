@@ -30,6 +30,7 @@ int main(int argc, char **argv)
 			exit(error_code);
 		}
 
+		check_comment(entry_buffer);
 		error_code = process_input(entry_buffer, argv, error_code);
 	}
 

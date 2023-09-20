@@ -4,13 +4,12 @@
  * check_builtins - Check built-in commands
  * @args: Array of strings representing tokenized
  * @entry_buffer: input from user
- * @unused: .... unused
+ * @unused: this is unused
  * Return: 1 if a built-in command was executed, 0 otherwise
  */
 
 int check_builtins(char **args, char *unused, char *entry_buffer)
 {
-	char **environ;
 	int x = 0, y = 0;
 
 	(void)unused;
