@@ -10,14 +10,14 @@
 
 int process_input(char *entry_buffer, char **argv, int error_code)
 {
-	char *get_full_path = NULL;
-	char char_cmd;
-	char **args = tokenize(entry_buffer);
+	char *get_full_path = NULL, char_cmd, **args = NULL;
+
+	args = tokenize(entry_buffer);
 
 	if (args[0] == NULL)
 	{
 		free(args);
-		return (error_code);
+		continue;
 	}
 
 	if (access(args[0], X_OK) == -1)
