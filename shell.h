@@ -11,7 +11,7 @@
 #include <sys/stat.h>
 
 int main(int argc, char **argv);
-int process_input(char *entry_buffer, char **argv, int error_code);
+int process_input(char *entry_buffer, char **argv, int error_code, int counter);
 int print_string(char *str);
 char **tokenize(char *str);
 int check_builtins(char **args, char *unused, char *entry_buffer);

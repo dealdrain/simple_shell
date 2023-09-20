@@ -14,11 +14,12 @@ int main(int argc, char **argv)
 	char *prompt_message = "OurSimpleShell>$ ";
 	size_t size = 0;
 	ssize_t num = 0;
-	int error_code = 0;
+	int error_code = 0, counter = 0;
 
 	(void)argc;
 	while (1)
 	{
+		counter++;
 		if (shell_mode == 1)
 			print_string(prompt_message);
 
@@ -44,7 +45,7 @@ int main(int argc, char **argv)
 		entry_buffer[num - 1] = '\0';
 
 		check_comment(entry_buffer);
-		error_code = process_input(entry_buffer, argv, error_code);
+		error_code = process_input(entry_buffer, argv, error_code, counter);
 	}
 
 	return (error_code);

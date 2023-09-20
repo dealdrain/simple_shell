@@ -5,10 +5,11 @@
  * @entry_buffer: input buffer
  * @argv: arg vector
  * @error_code: error
+ * @counter: counts the number of commands
  * Return: error code
  */
 
-int process_input(char *entry_buffer, char **argv, int error_code)
+int process_input(char *entry_buffer, char **argv, int error_code, int counter)
 {
 	char *get_full_path = NULL, char_cmd, **args = NULL;
 	int status = 0;
@@ -34,7 +35,7 @@ int process_input(char *entry_buffer, char **argv, int error_code)
 
 		if (get_full_path == NULL)
 		{
-			char_cmd = (error_code + '0');
+			char_cmd = (counter + '0');
 			custom_error(argv[0], char_cmd, args[0]);
 			free(args);
 
