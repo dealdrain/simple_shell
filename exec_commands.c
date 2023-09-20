@@ -11,7 +11,6 @@ int exec_cmd(char **args, char **argv)
 {
 	pid_t child_pid;
 	int status;
-	char **environ;
 	/*int error_code;*/
 
 	child_pid = fork();
