@@ -11,7 +11,7 @@ int exec_cmd(char **args, char **argv)
 {
 	pid_t child_pid;
 	int status;
-	/*int error_code;*/
+	/*int error_code = 0;*/
 
 	child_pid = fork();
 	if (child_pid < 0)
@@ -33,7 +33,6 @@ int exec_cmd(char **args, char **argv)
 
 		/*error_code = status;*/
 
-		/*A Macro that handles correct conversion of exit status of the child*/
 		free(args); /*This was a dynamically allocated array of strings*/
 	}
 	return (status);
