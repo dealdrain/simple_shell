@@ -11,18 +11,18 @@
 int process_input(char *entry_buffer, char **argv, int error_code)
 {
 	char *get_full_path = NULL, char_cmd, **args = NULL;
+	int status = 0;
 
 	args = tokenize(entry_buffer);
-
 	if (args[0] == NULL)
 	{
 		free(args);
-		continue;
+		return (error_code);
 	}
 
 	if (access(args[0], X_OK) == -1)
 	{
-		int status = check_builtins(args, argv[0], entry_buffer);
+		status = check_builtins(args, argv[0], entry_buffer);
 
 		if (status == 1)
 		{
