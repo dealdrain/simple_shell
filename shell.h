@@ -19,7 +19,7 @@ char *find_path(char *paths, char *cmd);
 char *_getpath(void);
 void _puts(char *str);
 int _putchar(char ch);
-void custom_error(char *prog, int counter, char *cmd);
+void custom_error(char *prog, int count, char *cmd);
 int exec_cmd(char **args, char **argv);
 int extra_exec_cmd(char **args, char **argv, char *get_full_path);
 int check_delim(char c, char *delim);
@@ -27,6 +27,7 @@ char **custom_strtok(char *str, char *delim);
 char **custom_strtok2(char *str, char delim);
 void check_comment(char *buf);
 int mul(int a, int b);
+int extra_exec_cmd(char **args, char **argv, char *get_full_path);
 
 extern char **environ;
 

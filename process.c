@@ -42,6 +42,7 @@ int process_input(char *entry_buffer, char **argv, int error_code, int count)
 
 			return (error_code);
 		}
+		extra_exec_cmd(args, argv, get_full_path);
 	}
 
 	exec_cmd(args, argv);
