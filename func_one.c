@@ -9,9 +9,24 @@
 
 char **tokenize(char *str)
 {
-	char **token_arr = custom_strtok(str, " \n");
+	char **tokens_arr = NULL;
+	int x = 0;
+	char *token = NULL, *delim = " \n";
 
-	return (token_arr);
+	tokens_arr = malloc(sizeof(char *) * 25);
+	if (tokens_arr == NULL)
+		return (NULL);
+
+	token = strtok(str, delim);
+	while (token != NULL)
+	{
+		tokens_arr[x] = token;
+		token = strtok(NULL, delim);
+		x++;
+	}
+
+	tokens_arr[x] = NULL;
+	return (tokens_arr);
 }
 
 /**

@@ -8,44 +8,47 @@
  */
 char *find_path(char *paths, char *cmd)
 {
-	char **path_tokens = custom_strtok(paths, ":");
-	int x = 0, i;
+	char **path_tokens = NULL, *token = NULL, *temp = NULL, *fullpath = NULL;
+	int x = 0;
 	size_t len = 0;
-	char *fullpath = NULL;
 
-	if (path_tokens == NULL)
+	if (paths == NULL)
 		return (NULL);
-
+	temp = strtok(paths, "=");
+	temp = strtok(NULL, "=");
+	path_tokens = malloc(sizeof(char *) * 30);
+	if (path_tokens == NULL)
+	{
+		free(paths);
+		return (NULL);
+	}
+	token = strtok(temp, ":");
+	while (token != NULL)
+	{
+		path_tokens[x] = token;
+		token = strtok(NULL, ":");
+		x++;
+	}
+	path_tokens[x] = NULL;
+	x = 0;
 	while (path_tokens[x] != NULL)
 	{
 		len = strlen(path_tokens[x]) + strlen(cmd) + 2;
 		fullpath = malloc(len);
-		if (fullpath == NULL)
-		{
-			for (i = 0; path_tokens[i] != NULL; i++)
-				free(path_tokens[i]);
-			free(path_tokens);
-			return (NULL);
-		}
-
 		strcpy(fullpath, path_tokens[x]);
 		strcat(fullpath, "/");
 		strcat(fullpath, cmd);
-
 		if (access(fullpath, X_OK) == 0)
 		{
-			for (i = 0; path_tokens[i] != NULL; i++)
-				free(path_tokens[i]);
 			free(path_tokens);
+			free(paths);
 			return (fullpath);
 		}
-
 		free(fullpath);
 		fullpath = NULL;
 		x++;
 	}
-	for (i = 0; path_tokens[i] != NULL; i++)
-		free(path_tokens[i]);
 	free(path_tokens);
+	free(paths);
 	return (NULL);
 }
