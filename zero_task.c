@@ -1,20 +1,13 @@
 #include "shell.h"
 
 /**
- * main1 - Entry point of the program
- *
- * Return: 0 Always a success
+ * mul - multiply 2 int
+ * @a: first int
+ * @b: second int
+ * Return: addition of the multiplicattion
  */
 
-int main1(void)
+int mul(int a, int b)
 {
-	int x = 0;
-
-	{
-		while (x < 12)
-
-			printf("%d * %d = %d\n", x, x, ++x * x);
-	}
-
-	return (0);
+	return (a * b);
 }
