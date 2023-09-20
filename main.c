@@ -26,9 +26,22 @@ int main(int argc, char **argv)
 
 		if (num == -1)
 		{
-			free(entry_buffer);
-			exit(error_code);
+			if (feof(stdin))
+			{
+				free(entry_buffer);
+				print_string("\n");
+				exit(error_code);
 		}
+			else
+			{
+				free(entry_buffer);
+				exit(EXIT_FAILURE);
+			}
+		}
+		if (num == 1 && entry_buffer[0] == '\n')
+			continue;
+
+		entry_buffer[num - 1] = '\0';
 
 		check_comment(entry_buffer);
 		error_code = process_input(entry_buffer, argv, error_code);
