@@ -26,6 +26,7 @@ char **custom_strtok(char *str, char *delim);
 char **custom_strtok2(char *str, char delim);
 void check_comment(char *buf);
 int mul(int a, int b);
+int main1(void);
 
 extern char **environ;
 
