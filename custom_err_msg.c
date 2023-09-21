@@ -23,7 +23,6 @@ void cus_err_msg(int fd, int cmd_count, char *s1, char *s2, char *s3)
 
 	if (cmd_count < 10)
 	{
-		
 		num = cmd_count + "0";
 		write(fd, &(num), 1);
 	}

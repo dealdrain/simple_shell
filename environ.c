@@ -3,7 +3,7 @@
 /**
  * environ_func - prints the environment
  * @argv: Argument vector
- * @env: this is the environment variables
+ * @environ: this is the environment variables
  * @token_arr: this is the array of user tokens
  */
 

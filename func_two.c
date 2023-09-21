@@ -42,3 +42,16 @@ char **path_split(char *path_dir)
 	free(tem_path);
 	return (token_arr);
 }
+
+/**
+ * handle_signal - this handle the CTRL + C signal
+ * @signum: The value returned from call to Signal
+ * Return: Returns Void
+ */
+
+void handle_signal(int signum)
+{
+	(void)signum;
+	write(1, "\n", 1);
+	write(1, "$OurSimpleShell ", 2);
+}

@@ -3,7 +3,7 @@
 /**
  * handle_path - finds other path when tests fails
  * @token_arr: this is the array of user tokens
- * @env: this is the nvironment variables
+ * @environ: this is the nvironment variables
  * @argv: program name
  * @mode: check if interactive or not
  * Return: Void

@@ -45,8 +45,7 @@ char *find_path(char *paths, char *cmd)
 
 	if (paths == NULL)
 		return (NULL);
-	temp = strtok(paths, "=");
-	temp = strtok(NULL, "=");
+	temp = strtok(paths, "="), temp = strtok(NULL, "=");
 	path_tokens = malloc(sizeof(char *) * 30);
 	if (path_tokens == NULL)
 	{
@@ -67,8 +66,7 @@ i		token = strtok(NULL, ":");
 		len = strlen(path_tokens[x]) + strlen(cmd) + 2;
 		fullpath = malloc(len);
 		strcpy(fullpath, path_tokens[x]);
-		strcat(fullpath, "/");
-		strcat(fullpath, cmd);
+		strcat(fullpath, "/"), strcat(fullpath, cmd);
 		if (access(fullpath, X_OK) == 0)
 		{
 			free(path_tokens);
@@ -79,8 +77,6 @@ i		token = strtok(NULL, ":");
 		fullpath = NULL;
 		x++;
 	}
-	free(path_tokens);
-	free(paths);
 	return (NULL);
 }
 

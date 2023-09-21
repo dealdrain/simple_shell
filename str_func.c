@@ -1,63 +1,78 @@
-#include "shell.h"
-
-#define SIZE_OF_INPUT 100
+#include <stdlib.h>
+#include <stddef.h>
 
 /**
- * print_string - Print a string and count the number of characters printed
- * @str: The string to print
- * Return: The number of characters printed
+ * _strcat - concatenates two strings
+ * @dest: string to append to
+ * @src: string to add
+ *
+ * Return: a pointer to the resulting string
  */
 
-int print_string(char *str)
+char *_strcat(char *dest, char *src)
 {
-	int x = 0;
-	int num = 0;
+	int x, y;
 
-	while (str[x])
+	x = 0;
+	y = 0;
+
+	while (dest[x] != '\0')
+		x++;
+
+	while (src[y] != '\0')
 	{
-		num += write(1, &str[x], 1);
+		dest[x] = src[y];
+		y++;
 		x++;
 	}
-	return (num);
+
+	dest[x] = '\0';
+
+	return (dest);
 }
 
 /**
- * _puts - prints a given string
- * @str: This is the string to be printed
- * Return: Void
+ * _strcmp - compares two strings
+ * @s1: first string to compare
+ * @s2: second string to compare
  *
+ * Return: less than 0 if s1 is less than s2, 0 if they're equal,
+ * more than 0 if s1 is greater than s2
  */
 
-void _puts(char *str)
+int _strcmp(char *s1, char *s2)
 {
-	while (*str != '\0')
+	while (*s1 == *s2)
 	{
-		_putchar(*str);
-		str++;
+		if (*s1 == '\0')
+		{
+			return (0);
+		}
+		s1++;
+		s2++;
 	}
+	return (*s1 - *s2);
 }
 
 /**
- * _putchar - Prints a character to standard error
- * @ch: This is the character to be printed
- * Return: An integer
+ * _strcpy - this copies a string
+ * @dest: Destination
+ * @src: Source
+ * Return: dest (Success)
  */
 
-int _putchar(char ch)
+char *_strcpy(char *dest, char *src)
 {
-	return (write(2, &ch, 1));
-}
+	char *start = dest;
 
-/**
- * check_delim - this checks if character is a delimeter or not
- * @c: the character to check
- * @delim: the delimeter string
- * Return: 1 if true, 0 if false
- */
-int check_delim(char c, char *delim)
-{
-	while (*delim)
-		if (*delim++ == c)
-			return (1);
-	return (0);
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+
+	*dest = '\0';
+
+	return (start);
 }
