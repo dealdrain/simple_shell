@@ -65,7 +65,7 @@ void chng_dir(char **argv, char **environ, char **token_arr)
 	}
 	if (chdir(getcwd(dir, size)) == -1)
 	{
-		cus_err_msg(2, cmd_count, argv[0], "can't cd to", token_arr[2]);
+		cus_err_msg(2, cmd_count, argv[0], "can't cd to", token_arr[0]);
 	}
 	free(dir);
 }
