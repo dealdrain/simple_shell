@@ -21,7 +21,8 @@ char *_substr(char *haystack, char *needle)
 				break;
 		}
 		/*if (!needle[y])*/
-		if (needle[y] == '\0')
+		/*if (needle[y] == '\0')*/
+		if (!needle[y])
 			return (&haystack[x]);
 	}
 	return (NULL);
