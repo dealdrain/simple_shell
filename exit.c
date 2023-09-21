@@ -9,7 +9,7 @@
 
 void exit_func(char **argv, char **environ, char **token_arr)
 {
-	int status_two = 0;
+	int status_two;
 
 	(void)environ;
 
@@ -20,7 +20,7 @@ void exit_func(char **argv, char **environ, char **token_arr)
                 errno = 2;
                 exit(errno);
 	}
-	if (token_arr[1] && _substr(token_arr[1], "HBTN"))
+	if (token_arr[1] && _substr(token_arr[1], "-98"))
 	{
 		cus_err_msg(2, 1, argv[0], token_arr[0], "Illegal number: -98");
 		free_array(token_arr);
