@@ -9,7 +9,7 @@
 
 void exit_func(char **argv, char **environ, char **token_arr)
 {
-	int status_two;
+	int status_two = 0;
 
 	(void)environ;
 
