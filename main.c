@@ -1,27 +1,31 @@
 #include "shell.h"
 
 /**
- * main- main function
- * @argc: count of args
- * @argv: arg vec
+ * main - main function and the entry point
+ * @argc: count of arguments
+ * @argv: argument vector
  * Return: error code
  */
 
-int main(int argc, char **argv)
+int main(int argc, char **argv, char **environ)
 {
-	int shell_mode = isatty(0);
-	char *entry_buffer = NULL;
-	char *prompt_message = "OurSimpleShell>$ ";
-	size_t size = 0;
-	ssize_t num = 0;
-	int error_code = 0, count = 0;
+	int shell_mode = 0;
 
+	count = 1;
 	(void)argc;
+
+	if (isatty(0) == 1)
+		shell_mode = 1;
+
+	errno = 0;
+
 	while (1)
 	{
 		count++;
 		if (shell_mode == 1)
-			print_string(prompt_message);
+		{
+			write(1, "$OurSimpleShell ", 2);
+		}
 
 		num = getline(&entry_buffer, &size, stdin);
 

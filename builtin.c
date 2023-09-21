@@ -2,13 +2,13 @@
 
 /**
  * check_builtins - Check built-in commands
- * @args: Array of strings representing tokenized
- * @entry_buffer: input from user
- * @unused: this is unused
+ * @argv: Arguments
+ * @environ: This is the environment variable
+ * @token_arr: this splits the user's input
  * Return: 1 if a built-in command was executed, 0 otherwise
  */
 
-int check_builtins(char **args, char *unused, char *entry_buffer)
+int check_builtins(char **argv, char **environ, char *entry_buffer)
 {
 	int x = 0, y = 0;
 
