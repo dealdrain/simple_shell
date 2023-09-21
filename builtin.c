@@ -24,7 +24,7 @@ int check_builtins(char **argv, char **environ, char **token_arr)
 
 	while (y < 3)
 	{
-		if (_strcmp(token_arr[0], builtin_ptr[x]->cmd) == 0)
+		if (_strcmp(token_arr[0], builtin_ptr[y]->cmd) == 0)
 		{
 			builtin_ptr[x]->func_cmd(argv, environ, token_arr);
 			x = 1;

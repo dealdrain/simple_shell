@@ -15,7 +15,7 @@ char **splitter(char *user_input)
 
 	if (tem_path != NULL)
 	{
-		tem_path = strtok(tem_path, DELIM);
+		tem_tok = strtok(tem_path, DELIM);
 		while (tem_tok != NULL)
 			token_count++, tem_tok = strtok(NULL, DELIM);
 	}

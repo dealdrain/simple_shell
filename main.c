@@ -24,7 +24,7 @@ int main(int argc, char **argv, char **environ)
 	{
 		if (shell_mode == 1)
 		{
-			write(1, "$OurSimpleShell ", 2);
+			write(1, "OurSimpleShell>$ ", 17);
 		}
 
 		handle_mode(argv, environ, &cmd_count, &shell_mode);

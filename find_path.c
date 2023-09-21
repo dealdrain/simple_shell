@@ -14,8 +14,8 @@ char *get_path(char **environ)
 
 	while (environ[x])
 	{
-		if (_substr(environ[x], "PATH") && environ[x][0] == 'P'
-				&& environ[x][4] == '=')
+		if (_substr(environ[x], "PATH") && environ[x][0] == 'P' &&
+				environ[x][4] == '=')
 		{
 			path = environ[x];
 			break;

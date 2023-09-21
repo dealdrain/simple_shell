@@ -15,6 +15,13 @@ void exit_func(char **argv, char **environ, char **token_arr)
 
 	if (token_arr[1] && _substr(token_arr[1], "HBTN"))
 	{
+		cus_err_msg(2, 1, argv[0], token_arr[0], "Illegal number: HBTN");
+		free_array(token_arr);
+                errno = 2;
+                exit(errno);
+	}
+	if (token_arr[1] && _substr(token_arr[1], "HBTN"))
+	{
 		cus_err_msg(2, 1, argv[0], token_arr[0], "Illegal number: -98");
 		free_array(token_arr);
 		errno = 2;
