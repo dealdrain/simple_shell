@@ -20,7 +20,8 @@ char *_substr(char *haystack, char *needle)
 			if (haystack[x + y] != needle[y])
 				break;
 		}
-		if (!needle[y])
+		/*if (!needle[y])*/
+		if (needle[y] == '\0')
 			return (&haystack[x]);
 	}
 	return (NULL);
