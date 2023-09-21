@@ -24,7 +24,7 @@ char *get_path(char **environ)
 	}
 	if (path != NULL)
 	{
-		for (x = 0; x < 6; x++;)
+		for (x = 0; x < 6; x++)
 			path++;
 	}
 	return (path);
@@ -56,7 +56,7 @@ char *find_path(char *paths, char *cmd)
 	while (token != NULL)
 	{
 		path_tokens[x] = token;
-i		token = strtok(NULL, ":");
+		token = strtok(NULL, ":");
 		x++;
 	}
 	path_tokens[x] = NULL;

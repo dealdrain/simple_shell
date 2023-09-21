@@ -27,6 +27,7 @@ typedef struct built_ins
 /*Global status*/
 int status;
 int cmd_count;
+extern char **environ;
 
 int _atoi(char *s);
 void chng_dir(char **argv, char **environ, char **token_arr);

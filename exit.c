@@ -22,9 +22,9 @@ void exit_func(char **argv, char **environ, char **token_arr)
 	}
 	if (token_arr[1])
 	{
-		status_two = atoi(token_ar[1]);
+		status_two = atoi(token_arr[1]);
 		free_array(token_arr);
-		ernno = status_two;
+		errno = status_two;
 		exit(errno);
 	}
 	if (errno != 0)

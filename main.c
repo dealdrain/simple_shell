@@ -12,7 +12,7 @@ int main(int argc, char **argv, char **environ)
 {
 	int shell_mode = 0;
 
-	count = 1;
+	cmd_count = 1;
 	(void)argc;
 
 	if (isatty(0) == 1)
@@ -27,8 +27,8 @@ int main(int argc, char **argv, char **environ)
 			write(1, "$OurSimpleShell ", 2);
 		}
 
-		handle_mode(argv, environ, &count, &mode);
-		count++;
+		handle_mode(argv, environ, &cmd_count, &shell_mode);
+		cmd_count++;
 	}
 
 	return (errno);

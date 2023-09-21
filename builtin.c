@@ -12,9 +12,9 @@ int check_builtins(char **argv, char **environ, char **token_arr)
 {
 	int x = -1, y = 0;
 
-	built_ins cd_s = {"cd", cd_func};
+	built_ins cd_s = {"cd", chng_dir};
 	built_ins exit_s = {"exit", exit_func};
-	built_ins env_s = {"env", env_func};
+	built_ins env_s = {"env", environ_func};
 
 	built_ins *builtin_ptr[3];
 
@@ -24,9 +24,9 @@ int check_builtins(char **argv, char **environ, char **token_arr)
 
 	while (y < 3)
 	{
-		if (_strcmp(token_arr[0], builtin_ptr[i]->cmd) == 0)
+		if (_strcmp(token_arr[0], builtin_ptr[x]->cmd) == 0)
 		{
-			builtin_ptr[i]->func_cmd(argv, environ, token_arr);
+			builtin_ptr[x]->func_cmd(argv, environ, token_arr);
 			x = 1;
 			break;
 		}
@@ -49,7 +49,7 @@ void chng_dir(char **argv, char **environ, char **token_arr)
 	char *old = getenv("OLDPWD");
 	size_t size = 0;
 
-	void(environ);
+	(void)environ;
 
 	if (token_arr[1] != NULL)
 	{
