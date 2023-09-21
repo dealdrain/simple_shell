@@ -1,4 +1,35 @@
+#include <stdlib.h>
 #include "shell.h"
+
+/**
+ * get_path - this returns a pointer to the path variable
+ * @environ: this is the nvironmental Variable
+ * Return: the pointer to the paths
+ */
+
+char *get_path(char **environ)
+{
+	char *path = NULL;
+	int x = 0;
+
+	while (environ[x])
+	{
+		if (_substr(environ[x], "PATH") && environ[x][0] == 'P'
+				&& environ[x][4] == '=')
+		{
+			path = environ[x];
+			break;
+		}
+		x++;
+	}
+	if (path != NULL)
+	{
+		for (x = 0; x < 6; x++;)
+			path++;
+	}
+	return (path);
+}
+
 
 /**
  * find_path - find the full valid path
@@ -26,7 +57,7 @@ char *find_path(char *paths, char *cmd)
 	while (token != NULL)
 	{
 		path_tokens[x] = token;
-		token = strtok(NULL, ":");
+i		token = strtok(NULL, ":");
 		x++;
 	}
 	path_tokens[x] = NULL;
@@ -51,4 +82,21 @@ char *find_path(char *paths, char *cmd)
 	free(path_tokens);
 	free(paths);
 	return (NULL);
+}
+
+/**
+ * check_path - checks if string exists in the path
+ * @cmd: this is the command to be searched
+ * @path: this is the path variable
+ * Return: Pointer to string if it exists or NULL if fail
+ */
+
+char *check_path(char *cmd, char *path)
+{
+	char *check = NULL;
+
+	if (path != NULL)
+		check = _substr(path, cmd);
+
+	return (check);
 }

@@ -8,27 +8,64 @@
  * Return: 1 if a built-in command was executed, 0 otherwise
  */
 
-int check_builtins(char **argv, char **environ, char *entry_buffer)
+int check_builtins(char **argv, char **environ, char **token_arr)
 {
-	int x = 0, y = 0;
+	int x = -1, y = 0;
 
-	(void)unused;
-	if (strcmp(args[0], "exit") == 0)
+	built_ins cd_s = {"cd", cd_func};
+	built_ins exit_s = {"exit", exit_func};
+	built_ins env_s = {"env", env_func};
+
+	built_ins *builtin_ptr[3];
+
+	builtin_ptr[0] = &cd_s;
+	builtin_ptr[1] = &exit_s;
+	builtin_ptr[2] = &env_s;
+
+	while (y < 3)
 	{
-		free(args);
-		free(entry_buffer);
-		exit(0);
-	}
-	else if (strcmp(args[0], "env") == 0)
-	{
-		while (environ[y] != NULL)
+		if (_strcmp(token_arr[0], builtin_ptr[i]->cmd) == 0)
 		{
-			write(1, environ[y], strlen(environ[y]));
-			write(1, "\n", 1);
-			y++;
+			builtin_ptr[i]->func_cmd(argv, environ, token_arr);
+			x = 1;
+			break;
 		}
-		free(args);
-		x = 1;
+		y++;
 	}
+
 	return (x);
+}
+
+/**
+ * chng_dir - this function changes current directory
+ * @argv: Argument vector
+ * @environ: this is the environment variables
+ * @token_arr: this is the array of user tokens
+ */
+
+void chng_dir(char **argv, char **environ, char **token_arr)
+{
+	char *dir = NULL;
+	char *old = getenv("OLDPWD");
+	size_t size = 0;
+
+	void(environ);
+
+	if (token_arr[1] != NULL)
+	{
+		if (token_arr[1][0] == '-')
+		{
+			chdir(old);
+		}
+		else if (chdir(token_arr[1]) == -1)
+		{
+			cus_err_msg(2, cmd_count, argv[0], "can't cd to", token_arr[1]);
+		}
+		return;
+	}
+	if (chdir(getcwd(dir, size)) == -1)
+	{
+		cus_err_msg(2, cmd_count, argv[0], "can't cd to", token_arr[2]);
+	}
+	free(dir);
 }
