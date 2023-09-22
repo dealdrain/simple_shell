@@ -10,10 +10,10 @@
  * Return: Void
  */
 
-void cus_err_msg(int fd, int cmd_count, char *s1, char *s2, char *s3)
+void cus_err_msg(int fd, int cmds_count, char *s1, char *s2, char *s3)
 {
 	char num;
-	int temp = cmd_count;
+	int temp = cmds_count;
 
 	while (*s1)
 	{
@@ -21,14 +21,14 @@ void cus_err_msg(int fd, int cmd_count, char *s1, char *s2, char *s3)
 	}
 	write(fd, ": ", 2);
 
-	if (cmd_count < 10)
+	if (cmds_count < 10)
 	{
-		num = cmd_count + '0';
+		num = cmds_count + '0';
 		write(fd, &(num), 1);
 	}
 	else
 	{
-		num = (cmd_count / 10) + '0';
+		num = (cmds_count / 10) + '0';
 		write(fd, &(num), 1);
 		num = (temp % 10) + '0';
 		write(fd, &(num), 1);

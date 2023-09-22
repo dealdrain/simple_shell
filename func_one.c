@@ -76,21 +76,3 @@ char **tokenize(char *str)
 	tokens_arr[x] = NULL;
 	return (tokens_arr);
 }
-
-/**
- * _getpath - Retrieves and duplicates the path
- * Return: A strings of the PATH Variable
- */
-
-char *_getpath(void)
-{
-	int x;
-	char *duplicate = NULL;
-
-	for (x = 0; environ[x] != NULL; x++)
-	{
-		if (strncmp(environ[x], "PATH", 4) == 0)
-			duplicate = strdup(environ[x]);
-	}
-	return (duplicate);
-				}
